@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 /**文本输入框内容*/
 @property (nonatomic, strong) NSString *contentStr;
+/**记录的indexPath*/
+@property (nonatomic, strong) NSIndexPath *recordIndexPath;
 
 @property (nonatomic, weak) id<BRSheetViewDelegate> delegate;
 /**初始化方法*/
