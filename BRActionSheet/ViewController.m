@@ -28,6 +28,7 @@
     //show之前给他赋值
     self.sheetView.recordIndexPath = [[NSIndexPath alloc] initWithIndex:0];
     [self.sheetView showBRSheet];
+
 }
 //三个代理方法,三个时机,不过差不多
 - (void)brsheetDidShow:(BRSheetView *)sheet

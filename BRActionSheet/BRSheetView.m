@@ -13,6 +13,7 @@
 //背景view
 @property (nonatomic, strong) UIView *backView;
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
+@property (nonatomic, assign) BOOL isAnimating;
 @end
 
 @implementation BRSheetView
@@ -39,25 +40,34 @@
  */
 - (void)showBRSheet
 {
-    self.backView  = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.backView.backgroundColor = [UIColor blackColor];
-    self.backView.alpha = 0.7;
-    [kKeyWindow addSubview:self.backView];
-
-    self.frame = CGRectMake(0, kKeyWindow.frame.size.height, kKeyWindow.frame.size.width, self.frame.size.height);
-    self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideBRSheet)];
-    [self.backView addGestureRecognizer:_tap];
-    [kKeyWindow addSubview:self];
-    
-    // 0.3秒后改变view的frame
-    [UIView animateWithDuration:kDuration animations:^{
-        self.frame = CGRectMake(0, kKeyWindow.frame.size.height - self.frame.size.height, self.frame.size.width, self.frame.size.height);
-    } completion:^(BOOL finished) {
-        if([self.delegate respondsToSelector:@selector(brsheetDidShow:)]) {
-            self.contentStr = self.contentTf.text;
-            [self.delegate brsheetDidShow:self];
-        }
-    }];
+    if (self.isAnimating) {
+        return ;
+    }
+    if (self.backView == nil) {
+        self.backView  = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        self.backView.backgroundColor = [UIColor blackColor];
+        self.backView.alpha = 0.5;
+        [kKeyWindow addSubview:self.backView];
+        self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideBRSheet)];
+        [kKeyWindow addSubview:self];
+        self.frame = CGRectMake(0, kKeyWindow.frame.size.height, kKeyWindow.frame.size.width, self.frame.size.height);
+        
+        
+        [self.backView addGestureRecognizer:_tap];
+        
+        // 0.3秒后改变view的frame
+        self.isAnimating = YES;
+        [UIView animateWithDuration:kDuration animations:^{
+            self.frame = CGRectMake(0, kKeyWindow.frame.size.height - self.frame.size.height, self.frame.size.width, self.frame.size.height);
+        } completion:^(BOOL finished) {
+            if([self.delegate respondsToSelector:@selector(brsheetDidShow:)]) {
+                self.contentStr = self.contentTf.text;
+                [self.delegate brsheetDidShow:self];
+            }
+            self.isAnimating = NO;
+        }];
+        
+    }
     
 }
 /**
@@ -66,6 +76,10 @@
 - (void)hideBRSheet
 {
     
+    if (self.isAnimating) {
+        return ;
+    }
+    self.isAnimating = YES;
     [UIView animateWithDuration:kDuration animations:^{
         self.frame = CGRectMake(0, self.frame.origin.y + self.frame.size.height, self.frame.size.width, self.frame.size.height);
     } completion:^(BOOL finished) {
@@ -76,7 +90,9 @@
         [self.backView removeGestureRecognizer:self.tap];
         [self.backView removeFromSuperview];
         [self removeFromSuperview];
+        self.backView = nil;
         self.contentTf.text = @"";
+        self.isAnimating = NO;
     }];
 }
 
