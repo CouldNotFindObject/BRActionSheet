@@ -650,6 +650,7 @@ NSForegroundColorAttributeName:[UIColor whiteColor]}];
         choseCoupon.delegate = self;
         choseCoupon.path = self.couponIndexpath;
         
+        choseCoupon.selectCoupon = _Bcoupon;
         [self.navigationController pushViewController:choseCoupon animated:YES];
     }
     

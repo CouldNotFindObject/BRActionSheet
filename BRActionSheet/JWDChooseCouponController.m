@@ -314,7 +314,13 @@
     if ([chooseCoupon.is_used isEqualToString:@"0"]) {
         
         //背景图片
-        choose.pic_image.image = [UIImage imageNamed:@"bg_coupon_hong"];
+        //如果传过来的优惠券id等于当前优惠券id,换成选中图片
+        if ([self.selectCoupon.ID isEqualToString:chooseCoupon.ID]) {
+            choose.pic_image.image.image = [UIImage imageNamed:@"choose_coupon"];
+        }else {
+            
+            choose.pic_image.image = [UIImage imageNamed:@"bg_coupon_hong"];
+        }
         
         //满 元
         NSInteger allM = [chooseCoupon.full_money integerValue];
@@ -479,7 +485,9 @@
     
     [collectionView reloadData];
     
-    self.passValueBlock(_coupon);
+    //传这个 选中优惠券
+    self.selectCoupon = _couponArr[indexPath.row];
+    self.passValueBlock(self.selectCoupon);
     [self.navigationController popViewControllerAnimated:YES];
     
 //   ///////////////////////

@@ -42,4 +42,6 @@ typedef void (^PassValueBlock)(Coupon *);
 @property (nonatomic, assign) id <BaiRuiDelegate> delegate;
 
 ////////////////////
+@property (nonatomic,strong)Coupon *selectCoupon;
+
 @end
