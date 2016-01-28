@@ -15,6 +15,8 @@
 		A131063C1C41F82600AA1886 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A131063A1C41F82600AA1886 /* LaunchScreen.storyboard */; };
 		A13106461C41F87F00AA1886 /* BRSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = A13106451C41F87F00AA1886 /* BRSheetView.m */; };
 		A13106481C41F9CE00AA1886 /* BRSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A13106471C41F9CE00AA1886 /* BRSheetView.xib */; };
+		A18812191C5A352600CDF5D3 /* JWDChooseCouponController.m in Sources */ = {isa = PBXBuildFile; fileRef = A18812161C5A352600CDF5D3 /* JWDChooseCouponController.m */; };
+		A188121A1C5A352600CDF5D3 /* JWDConfirOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = A18812181C5A352600CDF5D3 /* JWDConfirOrderController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,10 @@
 		A13106441C41F87F00AA1886 /* BRSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRSheetView.h; sourceTree = "<group>"; };
 		A13106451C41F87F00AA1886 /* BRSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRSheetView.m; sourceTree = "<group>"; };
 		A13106471C41F9CE00AA1886 /* BRSheetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BRSheetView.xib; sourceTree = "<group>"; };
+		A18812151C5A352600CDF5D3 /* JWDChooseCouponController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWDChooseCouponController.h; sourceTree = "<group>"; };
+		A18812161C5A352600CDF5D3 /* JWDChooseCouponController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWDChooseCouponController.m; sourceTree = "<group>"; };
+		A18812171C5A352600CDF5D3 /* JWDConfirOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWDConfirOrderController.h; sourceTree = "<group>"; };
+		A18812181C5A352600CDF5D3 /* JWDConfirOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWDConfirOrderController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,10 @@
 		A13106431C41F84F00AA1886 /* BRActionSheet */ = {
 			isa = PBXGroup;
 			children = (
+				A18812151C5A352600CDF5D3 /* JWDChooseCouponController.h */,
+				A18812161C5A352600CDF5D3 /* JWDChooseCouponController.m */,
+				A18812171C5A352600CDF5D3 /* JWDConfirOrderController.h */,
+				A18812181C5A352600CDF5D3 /* JWDConfirOrderController.m */,
 				A13106441C41F87F00AA1886 /* BRSheetView.h */,
 				A13106451C41F87F00AA1886 /* BRSheetView.m */,
 				A13106471C41F9CE00AA1886 /* BRSheetView.xib */,
@@ -169,8 +179,10 @@
 			files = (
 				A13106461C41F87F00AA1886 /* BRSheetView.m in Sources */,
 				A13106341C41F82600AA1886 /* ViewController.m in Sources */,
+				A18812191C5A352600CDF5D3 /* JWDChooseCouponController.m in Sources */,
 				A13106311C41F82600AA1886 /* AppDelegate.m in Sources */,
 				A131062E1C41F82600AA1886 /* main.m in Sources */,
+				A188121A1C5A352600CDF5D3 /* JWDConfirOrderController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +331,7 @@
 				A13106421C41F82600AA1886 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
